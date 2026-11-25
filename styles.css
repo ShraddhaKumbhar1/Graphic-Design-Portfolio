@@ -53,7 +53,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 /* Hero */
 .hero { position: relative; height: 100svh; min-height: 640px; overflow: hidden; }
-.hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 60%; }
+.hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
 .hero::after { content: ''; position: absolute; inset: 40% 0 0 0; background: linear-gradient(transparent, var(--ink)); }
 .hero__text { position: absolute; left: var(--margin); right: var(--margin); bottom: 56px; z-index: 1; }
 .hero .display { font-size: clamp(40px, 6.2vw, 88px); line-height: 1.12; }
@@ -75,10 +75,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .filters button[aria-pressed="true"] { color: var(--white); border-bottom-color: var(--white); }
 .filters sup { font-size: 10px; margin-left: 2px; }
 
-/* One lead tile, then equal pairs: frames in a row always share a height,
-   so captions line up on one baseline and no row leaves dead space. */
-.gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: 64px var(--gutter); }
+/* One lead tile, then big + small pairs (7 + 5 columns, both 4:3). The big side
+   alternates each row. Both tiles hang from the same top line; the smaller cover
+   ends higher, which gives the gallery its stagger. */
+.gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: 64px var(--gutter); align-items: start; }
 .tile { grid-column: span 6; }
+.tile.is-big { grid-column: span 7; }
+.tile.is-small { grid-column: span 5; }
 .tile.is-lead { grid-column: span 12; }
 .tile.is-hidden { display: none; }
 .tile button { display: block; width: 100%; text-align: left; }
@@ -197,7 +200,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .sh__deliv li { padding: 8px 0; border-bottom: 1px solid var(--line-soft); break-inside: avoid; font-size: 15px; }
 
 @media (max-width: 1024px) {
-  .tile { grid-column: span 12; }
+  .tile, .tile.is-big, .tile.is-small { grid-column: span 12; }
   .tile.is-lead .tile__frame img { aspect-ratio: 4 / 3; }
   .services__intro, .sh__head, .sh__brief, .sh__why { grid-template-columns: 1fr; row-gap: 16px; }
   .services__intro > *, .sh__head > *, .sh__brief > *, .sh__why > * { grid-column: 1 / -1; }

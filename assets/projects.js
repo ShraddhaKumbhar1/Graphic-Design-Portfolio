@@ -8,11 +8,11 @@ window.STUDIO = {
   name: 'ZINOS Design Studio',
   tagline: 'Ideas that last.',
   lead: 'Brand identity, packaging, print and websites for small local businesses, startups and creative brands.',
-  about: 'ZINOS is a studio for graphic, UI/UX and print design. I work directly with each client: short feedback loops, no hand-offs, and files that are checked before they leave.',
+  about: 'ZINOS is a studio for graphic, UI/UX and print design. We work directly with each client: short feedback loops, no hand-offs, and files that are checked before they leave.',
   email: 'hello@zinos.example',
   domain: 'zinos.example',
   location: 'Working remotely, replies the same day',
-  heroPhoto: { by: 'Haseeb Jamil', url: 'https://unsplash.com/photos/snowy-mountain-peak-under-starry-sky-3s85IxVDyXE' },
+  heroPhoto: { by: 'Ahmet Yüksek', url: 'https://unsplash.com/photos/snowy-mountains-under-a-starry-night-sky-1E3gWJFOXms' },
   services: [
     { name: 'Brand identity', detail: 'Logo suite, colour, type and a guidelines PDF you can hand to any printer.', from: '4–6 weeks' },
     { name: 'Packaging', detail: 'Labels, cartons and pouches with print-ready dielines and proofs.', from: '3–5 weeks' },
@@ -22,7 +22,7 @@ window.STUDIO = {
   steps: [
     { name: 'Call', when: 'Day 1', text: 'A 30-minute call about what you need and when. No charge.' },
     { name: 'Proposal', when: 'Day 3', text: 'Scope, timeline and a fixed price on one page.' },
-    { name: 'Two directions', when: 'Week 2', text: 'I send two directions. Pick one and we refine it.' },
+    { name: 'Two directions', when: 'Week 2', text: 'We send two directions. Pick one and we refine it.' },
     { name: 'Files', when: 'Final week', text: 'Everything delivered in colour, black and white, with a short guide.' }
   ]
 };
@@ -121,7 +121,7 @@ window.PROJECTS = [
     deliverables: ['Festival identity', '3 posters', 'Tickets and passes', '12 social templates', 'Wayfinding signs', 'Tote bag'],
     process: [
       { label: 'Concept', when: 'Week 1', text: 'One circle of projector light, recoloured for each night of the programme.' },
-      { label: 'Posters', when: 'Weeks 2–3', text: 'Three posters from one template, so volunteers could make more without me.' },
+      { label: 'Posters', when: 'Weeks 2–3', text: 'Three posters from one template, so volunteers could make more without us.' },
       { label: 'Print', when: 'Weeks 4–5', text: 'Numbered tickets, and passes with a red ring so staff are easy to spot.' },
       { label: 'Signs', when: 'Weeks 6–7', text: 'High-contrast signs tested at 8 m in the hall with the house lights down.' }
     ],

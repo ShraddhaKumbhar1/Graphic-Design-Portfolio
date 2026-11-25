@@ -12,7 +12,7 @@ python -m http.server 5520
 
 Everything sits on one 12-column grid (40px margins, 24px gutters; 20px and 16px on phones):
 
-- Gallery: one lead project across all 12 columns (16:9), then equal 6 + 6 pairs (4:3), so both captions in a row share a baseline. Captions start at the image's left edge.
+- Gallery: one lead project across all 12 columns (16:9), then pairs of one big cover (7 columns) and one smaller cover (5 columns), both 4:3 and hanging from the same top line. The big side swaps every row. Captions start at the image's left edge. Below 1024px every tile runs full width.
 - Services and the "How a project runs" steps use the same four columns (1, 4, 7, 10); the steps sit in a full-width fog band.
 - Case sheet: facts and steps on columns 1, 4, 7 and 10; body copy from column 4; the summary from column 7.
 
@@ -21,8 +21,9 @@ Everything sits on one 12-column grid (40px margins, 24px gutters; 20px and 16px
 - `index.html`, `styles.css`, `main.js`: the site
 - `assets/projects.js`: all portfolio copy (studio text, services, process, case studies)
 - `assets/work/{project}-1200.jpg` / `-2400.jpg`: project cover photos from Unsplash, two sizes each, chosen by the browser through `srcset`
-- `assets/img/hero-night-1600.jpg` / `-3200.jpg`: hero photo from Unsplash
-- `CREDITS.md`: photographer and source for every Unsplash photo (also credited on the site)- `assets/logo/`: lockup, wordmark, monogram and favicon, outlined from the PDF's vectors
+- `assets/img/hero-night-{1280,1920,2880,3840}.jpg`: hero photo from Unsplash (from a 5168px original); `sizes` accounts for the cover crop on tall screens
+- `CREDITS.md`: photographer and source for every Unsplash photo (also credited on the site)
+- `assets/logo/`: lockup, wordmark, monogram and favicon, outlined from the PDF's vectors
 - `assets/brand.js`: injects the logo into any `data-logo="lockup|wordmark|monogram"` element
 - `zinos.md` / `zinos.json`: design map and taste principles extracted from the guidelines
 

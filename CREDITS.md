@@ -4,7 +4,7 @@ All photographs below are from [Unsplash](https://unsplash.com) and used under t
 
 | Used for | File | Photographer | Source |
 |---|---|---|---|
-| Hero | `assets/img/hero-night-{1600,3200}.jpg` | Haseeb Jamil | https://unsplash.com/photos/snowy-mountain-peak-under-starry-sky-3s85IxVDyXE |
+| Hero | `assets/img/hero-night-{1280,1920,2880,3840}.jpg` | Ahmet Yüksek | https://unsplash.com/photos/snowy-mountains-under-a-starry-night-sky-1E3gWJFOXms |
 | Halden Coffee | `assets/work/halden-{1200,2400}.jpg` | With Mahdy | https://unsplash.com/photos/a-brown-paper-bag-sitting-on-top-of-a-white-table-wizWrRZJXSg |
 | Ossa Skincare | `assets/work/ossa-{1200,2400}.jpg` | Aleksandrs Karevs | https://unsplash.com/photos/a-bunch-of-bottles-sitting-on-top-of-a-table-V2Ks2FTkdEk |
 | Tidewater Quarterly | `assets/work/tidewater-{1200,2400}.jpg` | Sarah Dorweiler | https://unsplash.com/photos/person-reading-book-on-white-surface-Sy8dsVyiPgs |

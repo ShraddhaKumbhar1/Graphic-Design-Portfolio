@@ -21,13 +21,21 @@
     if (a.hasAttribute('data-mail-text')) a.textContent = S.email;
   });
 
-  // Gallery: one lead project across the full width, then equal pairs so every
-  // caption in a row shares a baseline. A leftover odd tile also runs full width.
+  // Gallery: one lead project across the full width, then pairs of one big cover
+  // (7 columns) and one smaller cover (5 columns). The big side swaps every row
+  // so the page zigzags. A leftover odd tile runs full width.
+  var SIZES = {
+    'is-lead': '(max-width: 1024px) calc(100vw - 40px), calc(100vw - 80px)',
+    'is-big': '(max-width: 1024px) calc(100vw - 40px), calc((100vw - 80px) * 7 / 12)',
+    'is-small': '(max-width: 1024px) calc(100vw - 40px), calc((100vw - 80px) * 5 / 12)'
+  };
   $('[data-gallery]').innerHTML = P.map(function (p, i) {
     var lead = i === 0 || (i === P.length - 1 && (P.length - 1) % 2 === 1);
-    return '<li class="tile ' + (lead ? 'is-lead' : 'is-half') + '" data-tag="' + p.tag + '">' +
+    var row = Math.floor((i - 1) / 2), first = (i - 1) % 2 === 0;
+    var size = lead ? 'is-lead' : ((row % 2 === 0) === first ? 'is-big' : 'is-small');
+    return '<li class="tile ' + size + '" data-tag="' + p.tag + '">' +
       '<button type="button" data-open="' + i + '" aria-label="Open case study: ' + esc(p.title) + '">' +
-        '<div class="tile__frame" style="background:' + p.ground + '">' + photo(p, lead ? '(max-width: 1024px) calc(100vw - 40px), calc(100vw - 80px)' : '(max-width: 1024px) calc(100vw - 40px), calc(50vw - 52px)', i === 0) + ' alt=""></div>' +
+        '<div class="tile__frame" style="background:' + p.ground + '">' + photo(p, SIZES[size], i === 0) + ' alt=""></div>' +
         '<div class="tile__meta">' +
           '<span class="tile__title">' + esc(p.title) + '</span>' +
           '<span class="tile__open" aria-hidden="true">View case →</span>' +
