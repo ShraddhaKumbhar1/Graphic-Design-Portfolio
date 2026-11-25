@@ -10,7 +10,6 @@
     return '<img src="' + base + '-1200.jpg" srcset="' + base + '-1200.jpg 1200w, ' + base + '-2400.jpg 2400w" sizes="' + sizes + '"' +
       ' loading="' + (eager ? 'eager' : 'lazy') + '" decoding="async" width="2400" height="1600"';
   };
-  var credit = function (c) { return '<a href="' + c.url + '?utm_source=zinos_portfolio&amp;utm_medium=referral" rel="noopener">' + esc(c.by) + '</a>'; };
 
   $('.hero .lead').textContent = S.lead;
   var hc = $('[data-hero-credit]');
@@ -34,14 +33,14 @@
     var row = Math.floor((i - 1) / 2), first = (i - 1) % 2 === 0;
     var size = lead ? 'is-lead' : ((row % 2 === 0) === first ? 'is-big' : 'is-small');
     return '<li class="tile ' + size + '" data-tag="' + p.tag + '">' +
-      '<button type="button" data-open="' + i + '" aria-label="Open case study: ' + esc(p.title) + '">' +
+      '<a class="tile__link" href="work/' + p.id + '.html">' +
         '<div class="tile__frame" style="background:' + p.ground + '">' + photo(p, SIZES[size], i === 0) + ' alt=""></div>' +
         '<div class="tile__meta">' +
           '<span class="tile__title">' + esc(p.title) + '</span>' +
           '<span class="tile__open" aria-hidden="true">View case →</span>' +
           '<span class="tile__disc"><span class="tile__no">' + pad(i + 1) + '</span>' + esc(p.discipline) + ' · ' + p.year + '</span>' +
         '</div>' +
-      '</button></li>';
+      '</a></li>';
   }).join('');
 
   // Filters
@@ -58,67 +57,11 @@
     document.querySelectorAll('.tile').forEach(function (t) { t.classList.toggle('is-hidden', f !== 'all' && t.dataset.tag !== f); });
   });
 
-  // Services and timeline
+  // Services and how a project runs
   $('[data-services]').innerHTML = S.services.map(function (s, i) {
     return '<li><div class="no">' + pad(i + 1) + '</div><h3>' + esc(s.name) + '</h3><p>' + esc(s.detail) + '</p><span class="time">' + esc(s.from) + '</span></li>';
   }).join('');
   $('[data-steps]').innerHTML = S.steps.map(function (s) {
     return '<li><span class="when">' + esc(s.when) + '</span><strong>' + esc(s.name) + '</strong><p>' + esc(s.text) + '</p></li>';
   }).join('');
-
-  // Case sheet
-  var sheet = $('[data-sheet]'), body = $('[data-sheet-body]'), current = 0;
-  function contrast(hex) {
-    var n = parseInt(hex.slice(1), 16), r = n >> 16, g = (n >> 8) & 255, b = n & 255;
-    return (r * 299 + g * 587 + b * 114) / 1000 > 150 ? '#0B0B0F' : '#FFFFFF';
-  }
-  function render(i) {
-    var p = P[i]; current = i;
-    $('[data-sheet-count]').textContent = pad(i + 1) + ' / ' + pad(P.length) + ' · ' + p.discipline;
-    body.innerHTML =
-      '<header class="sh__head"><div><span class="caption">' + esc(p.client) + ' · ' + p.year + '</span><h2 class="h1" id="sheet-title">' + esc(p.title) + '</h2></div><p class="lead">' + esc(p.summary) + '</p></header>' +
-      '<figure class="sh__cover" style="background:' + p.ground + '">' + photo(p, '(max-width: 1360px) calc(100vw - 80px), 1200px', true) + ' alt="' + esc(p.photo.alt) + '">' +
-        '<figcaption class="caption">Photo: ' + credit(p.photo) + ' on Unsplash</figcaption></figure>' +
-      '<dl class="sh__facts">' +
-        '<div><dt>Role</dt><dd>' + esc(p.role) + '</dd></div>' +
-        '<div><dt>Timeline</dt><dd>' + esc(p.timeline) + '</dd></div>' +
-        '<div><dt>Client</dt><dd>' + esc(p.client) + '</dd></div>' +
-        '<div><dt>Discipline</dt><dd>' + esc(p.discipline) + '</dd></div>' +
-      '</dl>' +
-      '<section class="sh__brief"><h3 class="h2">The brief</h3><div><p>' + esc(p.brief) + '</p><ul class="sh__deliv" aria-label="Delivered">' + p.deliverables.map(function (d) { return '<li>' + esc(d) + '</li>'; }).join('') + '</ul></div></section>' +
-      '<ol class="sh__steps" aria-label="Process">' + p.process.map(function (s, k) {
-        return '<li><span class="when">' + pad(k + 1) + ' · ' + esc(s.when) + '</span><strong>' + esc(s.label) + '</strong><p>' + esc(s.text) + '</p></li>';
-      }).join('') + '</ol>' +
-      '<section class="sh__why"><h3 class="h2">Why it works</h3><div><blockquote>' + esc(p.decision) + '</blockquote>' +
-        '<div class="sh__palette">' + p.palette.map(function (c) { return '<div style="background:' + c.hex + ';color:' + contrast(c.hex) + '">' + esc(c.name) + '<br>' + c.hex + '</div>'; }).join('') + '</div>' +
-        '<p class="sh__type">' + esc(p.type) + '</p></div></section>' +
-      '<button type="button" class="sh__next" data-next>Next project<span>' + esc(P[(i + 1) % P.length].title) + ' →</span></button>';
-    sheet.scrollTop = 0;
-  }
-  function open(i) {
-    render(i);
-    if (!sheet.open) sheet.showModal();
-    document.documentElement.style.overflow = 'hidden';
-    history.replaceState(null, '', '#case-' + P[i].id);
-  }
-  sheet.addEventListener('close', function () {
-    document.documentElement.style.overflow = '';
-    history.replaceState(null, '', location.pathname);
-    var t = document.querySelector('[data-open="' + current + '"]'); if (t) t.focus({ preventScroll: true });
-  });
-  document.addEventListener('click', function (e) {
-    var o = e.target.closest('[data-open]'); if (o) open(+o.dataset.open);
-  });
-  $('[data-close]').addEventListener('click', function () { sheet.close(); });
-  sheet.addEventListener('click', function (e) {
-    if (e.target.closest('[data-prev]')) render((current - 1 + P.length) % P.length);
-    else if (e.target.closest('[data-next]')) render((current + 1) % P.length);
-  });
-  sheet.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowRight') render((current + 1) % P.length);
-    if (e.key === 'ArrowLeft') render((current - 1 + P.length) % P.length);
-  });
-
-  var m = location.hash.match(/^#case-(.+)$/);
-  if (m) { var idx = P.findIndex(function (p) { return p.id === m[1]; }); if (idx > -1) open(idx); }
 })();
