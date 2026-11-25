@@ -25,6 +25,8 @@ node scripts/build-projects.js
 
 This rewrites every file in `work/` and removes pages for projects that no longer exist. Edit the data, not the generated pages.
 
+Stylesheet and script links carry a version tag (`?v=20261125-2`) so browsers fetch fresh files instead of cached ones. After changing `styles.css` or any script, bump the tag in `index.html` and `VERSION` in `scripts/build-projects.js`, then run the build.
+
 ## Layout system
 
 Everything sits on one 12-column grid (40px margins, 24px gutters; 20px and 16px on phones):
