@@ -40,6 +40,8 @@ Everything sits on one 12-column grid (40px margins, 24px gutters; 20px and 16px
 - `scripts/build-projects.js`: generates `work/*.html` from `assets/projects.js` (Node, no dependencies)
 - `assets/projects.js`: all portfolio copy (studio text, services, process, case studies)
 - `assets/nav.js`: turns the fixed nav solid on scroll
+- `assets/smooth-scroll.js`: eased, inertia-style scrolling on every page (Lenis-like, no dependency). Wheel, trackpad, arrow keys, Page Up/Down, Space, Home/End and same-page links glide instead of jumping. Touch screens and reduced-motion visitors keep native scrolling. `EASE` sets the feel: lower is floatier, higher is snappier (0.085 now).
+- `assets/hero-motion.js`: the hero's motion layer, a p5-style Perlin-noise flow field drawn on a canvas (no libraries). Faint pale trails drift like wind over the ridge, and the photo shifts a few pixels with the mouse. Pauses off-screen and in background tabs; turned off entirely for visitors who prefer reduced motion. Tune density with `count`, speed with `p.speed`, strength with `p.alpha`.
 - `assets/work/{project}-1200.jpg` / `-2400.jpg`: project cover photos from Unsplash, two sizes each, chosen by the browser through `srcset`
 - `assets/img/hero-night-{1280,1920,2880,3840}.jpg`: hero photo from Unsplash (from a 5168px original); `sizes` accounts for the cover crop on tall screens
 - `CREDITS.md`: photographer and source for every Unsplash photo (also credited on the site)
