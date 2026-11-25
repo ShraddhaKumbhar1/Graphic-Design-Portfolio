@@ -1,0 +1,86 @@
+{
+  "source": "ZINOS-brand-guidelines-A4.pdf (ZINOS Design Studio, Brand guidelines v1.0, November 2026, 19 pages A4)",
+  "tokens": {
+    "spacing": {
+      "scale": [4, 8, 16, 24, 32, 48, 64, 96, 128],
+      "base_unit": 8,
+      "page_margin": "39pt on A4 (13.8 mm); web equivalent 40px at 1440px, 20px on mobile",
+      "print_margins": "letterhead 20 mm; 3 mm bleed; 4 mm safe margin"
+    },
+    "typography": {
+      "families": ["Michroma", "DM Sans", "Inter"],
+      "scale": [
+        { "role": "display", "size": "56px", "line_height": "64px", "weight": "400", "family": "Michroma" },
+        { "role": "h1", "size": "36px", "line_height": "44px", "weight": "400", "family": "Michroma" },
+        { "role": "h2", "size": "20px", "line_height": "28px", "weight": "400", "family": "Michroma" },
+        { "role": "lead", "size": "20px", "line_height": "30px", "weight": "200", "family": "DM Sans" },
+        { "role": "body", "size": "16px", "line_height": "26px", "weight": "300", "family": "DM Sans" },
+        { "role": "emphasis", "size": "16px", "line_height": "26px", "weight": "400", "family": "DM Sans" },
+        { "role": "caption", "size": "12px", "line_height": "18px", "weight": "300", "family": "DM Sans" },
+        { "role": "descriptor", "size": "11px", "letter_spacing": "0.6em+ (to wordmark width)", "weight": "200", "family": "DM Sans", "case": "uppercase" },
+        { "role": "document-heading", "size": "33pt", "weight": "500", "family": "Inter" },
+        { "role": "document-body", "size": "9.8pt", "weight": "300", "family": "Inter" }
+      ],
+      "rules": [
+        "Michroma: display and headlines only, sentence case, tracking +0 (+60 only in the wordmark)",
+        "Michroma never for numbers, prices, forms or body text",
+        "Body measure 45-75 characters",
+        "Sentence case for headings and buttons; no exclamation marks"
+      ]
+    },
+    "colors": [
+      { "role": "background", "value": "#FFFFFF", "share": "55%" },
+      { "role": "text-primary / ink", "value": "#0B0B0F", "share": "25%" },
+      { "role": "panel / fog", "value": "#EEF0F6", "share": "10%" },
+      { "role": "accent / cobalt (one use per layout)", "value": "#2D4BFF", "share": "10%" },
+      { "role": "text-secondary", "value": "#3B3F4D" },
+      { "role": "text-muted", "value": "#5B6070" }
+    ],
+    "radius": ["0px (panels, swatches, photos)", "22% of icon size (app icon only)", "999px (round avatar only)"],
+    "shadows": ["none: depth comes from photography, never from CSS shadows"],
+    "rules_and_borders": ["0.75pt ink hairline as section divider (≈1px on screen)", "1px #E2E5EE panel outline"],
+    "image_ratios": [
+      { "usage": "hero / cover", "ratio": "2.35:1 (2400x1024)" },
+      { "usage": "landscape plate", "ratio": "16:9 (2400x1343, 1600x896)" },
+      { "usage": "portrait plate", "ratio": "2:3 (1200x1800)" },
+      { "usage": "social post", "ratio": "4:5 (1080x1350)" },
+      { "usage": "og image", "ratio": "1.91:1 (1200x630)" }
+    ],
+    "grid": {
+      "page": "A4 portrait, 39pt margins",
+      "columns": "3-column body (39 / 218 / 398pt starts) with a 2-column variant split at 313pt",
+      "web_max_width": "1200px content, 1440px frame",
+      "gutter": "24px"
+    }
+  },
+  "taste": [
+    {
+      "name": "Cobalt is a single word, not a theme",
+      "trigger": "When a layout needs a point of emphasis (a button, a card face, a cover)",
+      "decision": "Chose one cobalt (#2D4BFF) element per layout, carried otherwise by white and ink, over a blue-tinted UI where links, icons and headings share the accent",
+      "reason": "A colour that appears once reads as a decision; the eye lands on it first, so it can only point at the one thing that matters (start a project)",
+      "evidence": ["Stated proportion 55 / 25 / 10 / 10", "'One cobalt element at most per piece' on stationery", "Website spec: 'one cobalt button'", "Cobalt on fog logo marked 'sparingly'"]
+    },
+    {
+      "name": "Wide display face kept on a short leash",
+      "trigger": "When choosing where the extended, technical Michroma face is allowed",
+      "decision": "Chose to confine Michroma to the wordmark and headlines of a few words, with DM Sans Light for everything read, over using the display face for navigation, numbers and UI labels to push the brand voice",
+      "reason": "Extended letterforms are memorable at 36-56px and tiring at 14px; numbers in a wide face look like a tech logo rather than a price a client can trust",
+      "evidence": ["Type scale: Michroma only at 56, 36, 20px", "'Never numbers, prices, forms or body text'", "Stationery uses no Michroma at all", "Body 16/26 DM Sans Light, 45-75 ch"]
+    },
+    {
+      "name": "One logo, then silence",
+      "trigger": "When a layout has room for more brand marks (footers, watermarks, photo corners)",
+      "decision": "Chose one logo per layout, with the Z monogram wherever the name would repeat and no logo on photographs, over repeating the lockup as a pattern or watermark",
+      "reason": "A studio that sells restraint has to show it; repeated logos read as insecurity and compete with client work",
+      "evidence": ["'Using the logo once' page", "Website: wordmark in nav, Z in footer, hero photo clean", "Photography and mockups: logo 'None'"]
+    },
+    {
+      "name": "Hairlines and flat grounds instead of boxes",
+      "trigger": "When grouping content: contents list, personality traits, font-use table, asset inventory",
+      "decision": "Chose 0.75pt ink hairlines and flat fog panels with square corners, no shadows and no rounded cards, over card UI with radius and elevation",
+      "reason": "Ruled lists read like a printed spec sheet, which matches a studio that promises checked files; depth is left to the photography, lit by one soft source",
+      "evidence": ["Drawings on p3: 0.75pt rules in #0B0B0F", "Swatches and panels with 0px radius", "No drop shadows anywhere in the PDF", "Imagery spec: 'lit by one soft source'"]
+    }
+  ]
+}

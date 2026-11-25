@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZINOS Design Studio · Portfolio</title>
+  <meta name="description" content="Brand identity, packaging, print and websites for small local businesses, startups and creative brands.">
+  <meta name="theme-color" content="#0B0B0F">
+  <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500&family=Michroma&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="assets/brand.js" defer></script>
+  <script src="assets/projects.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#work">Skip to work</a>
+
+  <header class="nav">
+    <a href="#top" class="nav__logo" data-logo="wordmark" aria-label="ZINOS, back to top"></a>
+    <nav aria-label="Main">
+      <ul class="nav__links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <img class="hero__img" src="assets/img/hero-night-1600.jpg" srcset="assets/img/hero-night-1600.jpg 1600w, assets/img/hero-night-3200.jpg 3200w" sizes="100vw" alt="A snow-covered mountain ridge under a dark, star-filled night sky" width="3200" height="2119" fetchpriority="high">
+      <div class="hero__text">
+        <h1 class="display" data-enter>Ideas<br>that last.</h1>
+        <div class="hero__foot" data-enter>
+          <p class="lead"></p>
+          <a href="#work" class="hero__cue">Seven projects below <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="work" aria-labelledby="work-title">
+      <div class="work__head">
+        <h2 id="work-title" class="h1">Selected work</h2>
+        <div class="filters" role="group" aria-label="Filter by discipline" data-filters></div>
+      </div>
+      <ul class="gallery" data-gallery></ul>
+    </section>
+
+    <section id="services" class="services" aria-labelledby="services-title">
+      <div class="services__intro">
+        <h2 id="services-title" class="h1">What I design</h2>
+        <p class="lead" data-about></p>
+      </div>
+      <ol class="services__grid" data-services></ol>
+      <div class="timeline" aria-labelledby="timeline-title">
+        <h3 id="timeline-title" class="h2">How a project runs</h3>
+        <ol class="timeline__track" data-steps></ol>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="display">Now booking projects.</h2>
+      <div class="contact__row">
+        <p class="lead">Tell me what you need and when. You get a reply the same day, and a fixed price within two.</p>
+        <a class="button" data-mail>Start a project</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="footer__mark" data-logo="monogram" aria-label="ZINOS"></span>
+    <a class="caption" data-mail data-mail-text></a>
+    <p class="caption footer__credit">Photography from <a href="https://unsplash.com/?utm_source=zinos_portfolio&amp;utm_medium=referral" rel="noopener">Unsplash</a>. Hero by <a data-hero-credit rel="noopener"></a>.</p>
+    <p class="caption">© 2026 ZINOS Design Studio</p>
+  </footer>
+
+  <dialog class="sheet" aria-labelledby="sheet-title" data-sheet>
+    <div class="sheet__bar">
+      <span class="caption" data-sheet-count></span>
+      <div class="sheet__nav">
+        <button type="button" data-prev>Previous</button>
+        <button type="button" data-next>Next</button>
+        <button type="button" data-close aria-label="Close case study">Close ✕</button>
+      </div>
+    </div>
+    <article class="sheet__body" data-sheet-body></article>
+  </dialog>
+</body>
+</html>
