@@ -41,9 +41,9 @@ Everything sits on one 12-column grid (40px margins, 24px gutters; 20px and 16px
 - `assets/projects.js`: all portfolio copy (studio text, services, process, case studies)
 - `assets/nav.js`: turns the fixed nav solid on scroll
 - `assets/smooth-scroll.js`: eased, inertia-style scrolling on every page (Lenis-like, no dependency). Wheel, trackpad, arrow keys, Page Up/Down, Space, Home/End and same-page links glide instead of jumping. Touch screens and reduced-motion visitors keep native scrolling. `EASE` sets the feel: lower is floatier, higher is snappier (0.085 now).
-- `assets/hero-motion.js`: the hero's motion layer, a p5-style Perlin-noise flow field drawn on a canvas (no libraries). Faint pale trails drift like wind over the ridge, and the photo shifts a few pixels with the mouse. Pauses off-screen and in background tabs; turned off entirely for visitors who prefer reduced motion. Tune density with `count`, speed with `p.speed`, strength with `p.alpha`.
+- `assets/hero-motion.js`: the hero's motion layer, a p5-style Perlin-noise flow field drawn on a canvas (no libraries). Faint pale trails drift slowly through the gradient; the image itself stays still (no parallax). Pauses off-screen and in background tabs; turned off entirely for visitors who prefer reduced motion. Tune density with `count`, speed with `p.speed`, strength with `p.alpha`.
 - `assets/work/{project}-1200.jpg` / `-2400.jpg`: project cover photos from Unsplash, two sizes each, chosen by the browser through `srcset`
-- `assets/img/hero-night-{1280,1920,2880,3840}.jpg`: hero photo from Unsplash (from a 5168px original); `sizes` accounts for the cover crop on tall screens
+- `assets/img/hero-gradient-{1280,1920,2880,3840}.jpg`: the hero image, an original soft gradient in the brand palette (ink, navy, cobalt, one soft light). Rendered by `scripts/render-hero-gradient.py` (numpy + Pillow) with fine grain so it never bands; change `SEED` or the `blooms` list and re-run to get a different composition
 - `CREDITS.md`: photographer and source for every Unsplash photo (also credited on the site)
 - `assets/logo/`: lockup, wordmark, monogram and favicon, outlined from the PDF's vectors
 - `assets/brand.js`: injects the logo into any `data-logo="lockup|wordmark|monogram"` element

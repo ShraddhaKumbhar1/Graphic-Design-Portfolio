@@ -12,8 +12,6 @@
   };
 
   $('.hero .lead').textContent = S.lead;
-  var hc = $('[data-hero-credit]');
-  hc.href = S.heroPhoto.url + '?utm_source=zinos_portfolio&utm_medium=referral'; hc.textContent = S.heroPhoto.by;
   $('[data-about]').textContent = S.about;
   document.querySelectorAll('[data-mail]').forEach(function (a) {
     a.href = 'mailto:' + S.email + '?subject=New%20project';

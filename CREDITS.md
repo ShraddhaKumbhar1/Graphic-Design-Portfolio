@@ -4,7 +4,6 @@ All photographs below are from [Unsplash](https://unsplash.com) and used under t
 
 | Used for | File | Photographer | Source |
 |---|---|---|---|
-| Hero | `assets/img/hero-night-{1280,1920,2880,3840}.jpg` | Ahmet Yüksek | https://unsplash.com/photos/snowy-mountains-under-a-starry-night-sky-1E3gWJFOXms |
 | Halden Coffee | `assets/work/halden-{1200,2400}.jpg` | With Mahdy | https://unsplash.com/photos/a-brown-paper-bag-sitting-on-top-of-a-white-table-wizWrRZJXSg |
 | Ossa Skincare | `assets/work/ossa-{1200,2400}.jpg` | Aleksandrs Karevs | https://unsplash.com/photos/a-bunch-of-bottles-sitting-on-top-of-a-table-V2Ks2FTkdEk |
 | Tidewater Quarterly | `assets/work/tidewater-{1200,2400}.jpg` | Sarah Dorweiler | https://unsplash.com/photos/person-reading-book-on-white-surface-Sy8dsVyiPgs |
@@ -12,5 +11,7 @@ All photographs below are from [Unsplash](https://unsplash.com) and used under t
 | Northloop launch | `assets/work/northloop-{1200,2400}.jpg` | Backroad Packers | https://unsplash.com/photos/man-in-orange-hoodie-standing-on-rocky-mountain-during-daytime-kWgR1Y6pcFg |
 | Kestrel Library | `assets/work/kestrel-{1200,2400}.jpg` | Metin Ozer | https://unsplash.com/photos/a-library-filled-with-lots-of-books-and-chairs-pCp5zuDXGJg |
 | Ridgeline | `assets/work/ridgeline-{1200,2400}.jpg` | Sven Pieren | https://unsplash.com/photos/mountain-ridges-under-warm-sky-ibikgDapcp4 |
+
+The hero gradient (`assets/img/hero-gradient-*.jpg`) is original, rendered by `scripts/render-hero-gradient.py`, and needs no credit.
 
 The photos are stand-ins: they set the mood for each brief but do not show the projects' own branding. Replace them with photographs of your real work before publishing the portfolio.

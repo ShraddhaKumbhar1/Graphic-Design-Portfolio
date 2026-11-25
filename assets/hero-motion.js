@@ -1,10 +1,10 @@
 /*
-  Hero motion: a quiet, p5-style flow field drawn over the night photo.
+  Hero motion: a quiet, p5-style flow field drawn over the hero gradient.
 
   A few hundred particles drift through a slowly changing Perlin-noise field,
-  mostly left to right like wind over the ridge. Each leaves a short, faint trail
-  that fades in and out over its life. The photo shifts a few pixels with the
-  pointer for a touch of depth.
+  mostly left to right like light moving through the colour. Each leaves a short,
+  faint trail that fades in and out over its life. The gradient image itself
+  stays still: no parallax.
 
   Restraint rules: pale blue-white only (cobalt stays reserved for the button),
   1px lines at 12-26% peak opacity, masked away from the nav and the text.
@@ -18,7 +18,6 @@
   if (!hero || !img || !window.requestAnimationFrame) return;
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 
   // ---------- Perlin noise (improved Perlin, 3D) ----------
   var perm = new Uint8Array(512);
@@ -129,21 +128,6 @@
     }
   }
 
-  // ---------- Pointer parallax (fine pointers only) ----------
-  var px = 0, py = 0, tx = 0, ty = 0, pRaf = 0;
-  function onPointer(e) {
-    var r = hero.getBoundingClientRect();
-    tx = ((e.clientX - r.left) / r.width - 0.5) * -14;
-    ty = ((e.clientY - r.top) / r.height - 0.5) * -8;
-    if (!pRaf) pRaf = requestAnimationFrame(ease);
-  }
-  function ease() {
-    px += (tx - px) * 0.06; py += (ty - py) * 0.06;
-    img.style.transform = 'translate3d(' + px.toFixed(2) + 'px,' + py.toFixed(2) + 'px,0) scale(1.04)';
-    canvas.style.transform = 'translate3d(' + (px * 1.6).toFixed(2) + 'px,' + (py * 1.6).toFixed(2) + 'px,0)';
-    pRaf = (Math.abs(tx - px) > 0.05 || Math.abs(ty - py) > 0.05) ? requestAnimationFrame(ease) : 0;
-  }
-
   // ---------- Lifecycle ----------
   function start() {
     if (running || reduce.matches || !visible || document.hidden) return;
@@ -160,10 +144,6 @@
     resize();
     hero.classList.add('has-motion');
     requestAnimationFrame(function () { canvas.classList.add('is-on'); });
-    if (finePointer.matches) {
-      img.style.transform = 'scale(1.04)';
-      hero.addEventListener('pointermove', onPointer);
-    }
     start();
   }
   function disable() {
@@ -171,8 +151,6 @@
     ctx.clearRect(0, 0, W, H);
     canvas.classList.remove('is-on');
     hero.classList.remove('has-motion');
-    hero.removeEventListener('pointermove', onPointer);
-    img.style.transform = ''; canvas.style.transform = '';
   }
 
   if ('IntersectionObserver' in window) {

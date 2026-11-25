@@ -13,7 +13,6 @@ window.STUDIO = {
   email: 'hello@zinos.example',
   domain: 'zinos.example',
   location: 'Working remotely, replies the same day',
-  heroPhoto: { by: 'Ahmet Yüksek', url: 'https://unsplash.com/photos/snowy-mountains-under-a-starry-night-sky-1E3gWJFOXms' },
   services: [
     { name: 'Brand identity', detail: 'Logo suite, colour, type and a guidelines PDF you can hand to any printer.', from: '4–6 weeks' },
     { name: 'Packaging', detail: 'Labels, cartons and pouches with print-ready dielines and proofs.', from: '3–5 weeks' },
